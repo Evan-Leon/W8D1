@@ -1,0 +1,13 @@
+<h1>Say Hello to all the users!</h1>
+
+<ul>
+    <% if !@users.nil? %>
+        <% @users.each do |user| %>
+        <li><a href="<%= user_url(user) %>"><%= user.username %></a>   </li>
+        <% end %>
+    <% else %>
+        <p>No Users!</p>
+    
+    <% end %>
+    
+</ul>

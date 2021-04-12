@@ -10,6 +10,18 @@
   </head>
 
   <body>
+
+
+
+
+    
+    
+    <% if flash[:errors] %>
+      <%= flash[:errors].join(', ')  %>
+    <% else %>
+      <%= flash[:success]  %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
