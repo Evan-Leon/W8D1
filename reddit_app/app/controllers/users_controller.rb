@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :ensure_logged_in, only: [:destroy]
+    before_action :ensure_logged_in, only: [:destroy, :show]
     def index 
         @users = User.all 
 
@@ -42,8 +42,8 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
 
         if @user.update_attributes(user_params)
-            flash.now[:success] = ["Successfully edited #{@user}!"]
-            render :index 
+            flash.now[:success] = ["Successfully edited #{@user.username}!"]
+            redirect_to user_url(@user) 
         else  
             flash.now[:errors] = ['Inccorect username or password']
             render :edit 
