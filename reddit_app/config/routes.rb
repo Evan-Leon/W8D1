@@ -24,9 +24,11 @@ Rails.application.routes.draw do
 
   resources :users do 
     resources :subs, only:[:create]
+    resources :posts, only: [:create]
   end
 
   resources :subs, except: [:create, :destroy]
+  resources :posts, except: [:create]
 
   resource :session
 end
