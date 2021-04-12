@@ -1,0 +1,13 @@
+<h1>ALL OF THE SUBS</h1>
+
+<ul>
+    <% if !@subs.nil? %>
+        <% @subs.each do |sub| %>
+        <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
+        <% end %>
+    <% else %>
+        <p>No Subs!</p>
+    
+    <% end %>
+    
+</ul>

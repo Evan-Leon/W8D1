@@ -1,3 +1,20 @@
 <h1>Hello <%= @user.username  %>!</h1>
 
 <a href="<%= edit_user_url(current_user) %>">Edit User!</a>
+
+<ul>
+    <p>These are your Subs:</p>
+        <% if @user.subs %>
+            <% @user.subs.each do |sub| %>
+                <li><a href="<%= sub_url(sub)%>"><%= sub.title %></a></li>
+                <li><a href="<%= edit_sub_url(sub) %>">Edit <%= sub.title %></a></li>
+    
+            <% end %>
+        <% else %>
+            <p>You Have no Subs yet</p>
+        <% end %>
+        
+    
+        
+</ul>
+

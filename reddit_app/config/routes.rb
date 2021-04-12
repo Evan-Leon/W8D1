@@ -28,5 +28,5 @@ Rails.application.routes.draw do
 
   resources :subs, except: [:create, :destroy]
 
-  resource :session, only: [:create, :destroy] 
+  resource :session
 end

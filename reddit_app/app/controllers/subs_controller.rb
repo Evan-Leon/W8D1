@@ -7,13 +7,17 @@ class SubsController < ApplicationController
     end
 
     def create 
+        #debugger
         @sub = Sub.new(sub_params)
-        @sub.moderator_id = User.find(params[:moderator_id])
+        @sub.moderator_id = params[:user_id]
+
         if @sub.save 
+            #debugger
             flash[:success] = ['New Sub Created']
-            redirect_to sub_url(@sub)
+            redirect_to subs_url
         else  
-            flash[:errors] = @sub.errors.full_messages
+            #debugger
+            flash.now[:errors] = @sub.errors.full_messages
             render :new 
         end
     end
@@ -30,7 +34,7 @@ class SubsController < ApplicationController
 
     def edit 
         @sub = Sub.find(params[:id])
-        render: edit 
+        render :edit 
     end
 
     def update 
